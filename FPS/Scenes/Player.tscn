@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Environments/default_env.tres" type="Environment" id=1]
+[ext_resource path="res://Scenes/PlayerController.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.34
+mid_height = 1.25
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.34
+height = 1.25
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94, 0 )
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, 2.5411e-21, -5.96047e-08, 2.5411e-21, 1, -1.51461e-28, 5.96047e-08, -3.02923e-28, -1, -7.45058e-09, 0.6, 0 )
+environment = ExtResource( 1 )
+
+[node name="Capsule Mesh" type="MeshInstance" parent="."]
+transform = Transform( 1, -5.96046e-08, 0, 0, -4.37114e-08, 1, -5.96046e-08, -1, -4.37114e-08, -7.45058e-09, 0, 0 )
+cast_shadow = 0
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Collision Capsule" type="CollisionShape" parent="."]
+transform = Transform( 1, -5.96046e-08, 0, 0, -4.37114e-08, 1, -5.96046e-08, -1, -4.37114e-08, -7.45058e-09, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Eye Marker" type="CSGBox" parent="."]
+transform = Transform( 1, 2.5411e-21, 5.96046e-08, -2.5411e-21, 1, 2.2215e-28, -5.96046e-08, -6.05845e-28, 1, 7.45058e-09, 0.6, 0.15 )
+cast_shadow = 0
+width = 0.34
+height = 0.2
+depth = 0.4
